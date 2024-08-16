@@ -1,18 +1,9 @@
-## Getting Started
+## Implementación de Patrón Singleton
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+El patrón Singleton es un patrón de diseño que garantiza que una clase tenga solo una instancia y proporciona un punto de acceso global a esa instancia. Es útil cuando se necesita una única instancia de una clase para coordinar acciones a lo largo del sistema. El servicio de registro (Logger) es un buen ejemplo para explicar el patrón Singleton debido a su naturaleza.
 
-## Folder Structure
+## Estructura de los archivos
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- `src/com/curso/tarea`: Paquete con la primera prueba del Logger.
+- `src/com/curso/tarea2`: Paquete con la segunda prueba del Logger.
+- Singleton.pdf: Archivo donde se explica y se argumenta la implementación, así como el despliegue de los resultados de ambas pruebas.
