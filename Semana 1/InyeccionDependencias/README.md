@@ -1,17 +1,12 @@
-## Getting Started
+## Implementación de Inyección de Dependencias
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+La gestión de finanzas personales es una tarea fundamental que permite a los individuos tomar decisiones informadas sobre sus gastos, ingresos y presupuestos. Este proyecto se centra en desarrollar un sistema de gestión de finanzas personales en Java, utilizando el patrón de diseño de Inyección de Dependencias (Dependency Injection, DI) para promover un código modular, fácil de mantener y probar. El sistema incluirá funcionalidades como el registro de transacciones y la generación de un reporte básico.
 
-## Folder Structure
+## Estructura de los archivos
 
-The workspace contains two folders by default, where:
+- `src/com/curso/tarea`: Paquete con el proyecto completo.
+- InyeccionDependencias.pdf: Archivo donde se explica y se argumenta la implementación, así como el despliegue de los resultados de ambas pruebas.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
 ## Dependency Management
 
