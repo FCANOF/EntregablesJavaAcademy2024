@@ -1,0 +1,60 @@
+
+
+
+
+
+
+Streams
+
+Frida Cano Falcón
+Java Backend Academy MTY August 2024
+
+Week 2
+
+
+
+
+
+
+
+August 23, 2024
+
+
+
+Program 1: Healthcare Data Analysis
+Business Case:
+The program analyzes healthcare data to extract insights about patient records. Specifically, it filters patient records by diagnosis, calculates the average age of patients with a certain condition, groups patients by their treatment type, and identifies the most common diagnoses.
+Purpose
+To analyze healthcare data to extract insights on patient records. The program filters patients by diagnosis, calculates average age for specific conditions, groups patients by treatment, and identifies the most common diagnoses.
+Operations Used
+	•	Filter: Used to extract patients with a specific diagnosis.
+	•	MapToInt: Converts patient data into an integer stream to compute average age.
+	•	Average: Computes the average age of filtered patients.
+	•	Collect: Collects data into a map to group patients by treatment type.
+	•	Max: Finds the most frequent diagnosis by comparing counts.
+
+Steps Taken:
+	1.	Filter: Filters the stream to include only patients with ‘Diabetes’.
+	2.	Calculate Average Age: Computes the average age of patients with ‘Heart Disease’.
+	3.	Group by Treatment: Groups patients by their treatment type and prints each group.
+	4.	Find Most Common Diagnosis: Groups patients by diagnosis and determines which diagnosis is most common.
+
+
+Program 2: Product Inventory Management
+Business Case:
+This program manages product inventory by filtering out out-of-stock items, calculating the total value of in-stock products, and grouping products by category. It also demonstrates sorting and data aggregation using the Stream API.
+Purpose 
+To manage product inventory by filtering out-of-stock items, calculating the total value of in-stock products, grouping products by category, and sorting products by price within each category.
+Operations Used:
+	•	Filter: Used to exclude out-of-stock products.
+	•	MapToDouble: Converts product data into a double stream for total value calculation.
+	•	Sum: Computes the total inventory value.
+	•	Collect: Groups products by category and gathers them into a map.
+	•	Sorted: Orders products by price within each category.
+
+Steps Taken:
+	1.	Filter: Filters out out-of-stock products and prints the in-stock products.
+	2.	Calculate Total Value: Computes the total value of in-stock products using their prices and quantities.
+	3.	Group by Category: Groups in-stock products by their category and prints the grouped data.
+	4.	Sort by Price: Sorts products by price within each category and prints the sorted lists.
+
