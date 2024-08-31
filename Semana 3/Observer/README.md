@@ -1,99 +1,108 @@
-# **Sensor Data Fusion - Decorator Design Pattern**
+# **Vision System - Observer Design Pattern**
 **Frida Cano**  
 *Java Backend Academy August 2024*
 
 ## **Overview**
 
-This project implements the Decorator design pattern in a Java 17 application, simulating sensor data fusion for the perception system of an autonomous car. The project demonstrates how the Decorator pattern can be used to dynamically add responsibilities to objects, allowing for the flexible combination of data from multiple sensors.
+This project demonstrates the application of the Observer design pattern in a Java 17 project focused on sensor data monitoring in a self-driving car's perception system. The Observer pattern is a behavioral design pattern that allows an object (the subject) to notify multiple dependent objects (observers) about state changes without tightly coupling them. This pattern is particularly useful in scenarios where real-time updates are critical, such as in the various systems of a self-driving car that need to react to sensor data immediately.
 
 ## **Project Structure**
 
 The project is organized into the following files and directories:
 
 ```plaintext
-Decorator/
+Observer/
 ├── src/
 │   └── com/
 │       └── autonomouscar/
 │           └── sensors/
-│               ├── SensorData.java
-│               ├── SensorDataDecorator.java
-│               ├── FusedData.java
+│               ├── Subject.java
+│               ├── Observer.java
 │               ├── CameraSensor.java
 │               ├── LiDARSensor.java
-│               ├── VisionSystem.java
-│               └── SensorDataTest.java
-└── Decorator.pdf
+│               ├── ObstacleDetectionSystem.java
+│               ├── LaneTrackingSystem.java
+│               ├── TrafficSignRecognitionSystem.java
+│               └── VisionSystem.java
+└── Observer.pdf
 ```
 
 ### **Files**
 
-- **`SensorData.java`**
-  - An interface representing the data produced by a sensor. 
-  - Defines the `getData()` method, which returns sensor data as a string.
+- **`Subject.java`**
+  - **Description:** Defines the interface for subjects (observables) in the Observer pattern.
+  - **Functionality:** Declares methods for attaching, detaching, and notifying observers. This interface is implemented by sensor classes to manage their observers.
 
-- **`SensorDataDecorator.java`**
-  - An abstract class implementing the `SensorData` interface.
-  - Serves as the base decorator class, holding a reference to a `SensorData` object and delegating the `getData()` method.
-
-- **`FusedData.java`**
-  - Extends `SensorDataDecorator` to combine data from two different sensors.
-  - Implements the `getData()` method to return a string that fuses data from the original sensor and an additional sensor.
+- **`Observer.java`**
+  - **Description:** Defines the interface for observers in the Observer pattern.
+  - **Functionality:** Declares the `update()` method, which is called by the subject to notify observers of any changes in the data.
 
 - **`CameraSensor.java`**
-  - A concrete class implementing the `SensorData` interface, representing a camera sensor.
-  - Returns simulated camera data via the `getData()` method.
+  - **Description:** A concrete implementation of the `Subject` interface.
+  - **Functionality:** Manages a list of observers and notifies them whenever the camera sensor data changes.
 
 - **`LiDARSensor.java`**
-  - Another concrete class implementing the `SensorData` interface, representing a LiDAR sensor.
-  - Returns simulated LiDAR data via the `getData()` method.
+  - **Description:** Another concrete implementation of the `Subject` interface.
+  - **Functionality:** Similar to `CameraSensor`, but handles data from a LiDAR sensor and notifies its observers of any changes.
+
+- **`ObstacleDetectionSystem.java`**
+  - **Description:** A concrete implementation of the `Observer` interface.
+  - **Functionality:** Receives and processes updates from sensors to detect obstacles in the vehicle's surroundings.
+
+- **`LaneTrackingSystem.java`**
+  - **Description:** A concrete implementation of the `Observer` interface.
+  - **Functionality:** Receives and processes updates from sensors to track lanes on the road.
+
+- **`TrafficSignRecognitionSystem.java`**
+  - **Description:** A concrete implementation of the `Observer` interface.
+  - **Functionality:** Receives and processes updates from sensors to recognize traffic signs.
 
 - **`VisionSystem.java`**
-  - The main class demonstrating how to use the Decorator pattern for sensor data fusion.
-  - It initializes the sensor objects, applies decorators to fuse the data, and outputs the fused data.
+  - **Description:** The main class that ties everything together, simulating the interaction between sensors and their observers.
+  - **Functionality:** Demonstrates how different sensor systems can be monitored and updated using the Observer pattern. It shows how the system reacts to new sensor data by notifying the appropriate observers.
 
-- **`SensorDataTest.java`**
-  - Contains unit tests using JUnit 5 to validate the functionality of the sensor data fusion.
-  - Tests the individual sensor classes and the fusion of data using decorators.
-
-- **`Decorator.pdf`**
-  - A detailed report explaining the implementation of the Decorator design pattern in this project.
-  - The report includes an introduction to the Decorator pattern, a description of the project, and the full code implementation with explanations.
+- **`Observer.pdf`**
+  - **Description:** A detailed report explaining the implementation of the Observer design pattern in this project.
+  - **Content:** The report includes an introduction to the Observer pattern, a description of the project, code implementation details, and explanations of design choices.
 
 ## **Getting Started**
 
 ### **Prerequisites**
-- Java 17 installed on your system.
-- A Java IDE (such as Visual Studio Code) or a command-line environment for compiling and running the code.
-- JUnit 5 for running the tests.
+- **Java 17:** Ensure that Java 17 is installed on your system.
+- **Java IDE:** Use an IDE such as Visual Studio Code, IntelliJ IDEA, or Eclipse for easier development and execution.
+- **JUnit 5:** Required for running the unit tests. Ensure JUnit 5 is set up in your development environment.
 
 ### **How to Run**
 
 1. **Clone the Repository:**
-   - Clone the project repository to your local machine.
+   - Clone the project repository to your local machine using Git
 
 2. **Compile the Code:**
-   - Navigate to the `src` directory in your terminal or IDE.
-   - Run the following command to compile the Java files:
+   - Navigate to the `src` directory:
+     ```bash
+     cd Observer/src
+     ```
+   - Compile the Java files:
      ```bash
      javac com/autonomouscar/sensors/*.java
      ```
 
 3. **Run the Main Class:**
-   - Execute the `VisionSystem` class to run the sensor data fusion simulation:
+   - Execute the `VisionSystem` class to simulate the observer pattern in action:
      ```bash
      java com.autonomouscar.sensors.VisionSystem
      ```
-
-4. **Run Tests:**
-   - Run the JUnit tests to ensure everything is functioning correctly:
-     ```bash
-     java -cp .:junit-platform-console-standalone-1.8.1.jar org.junit.platform.console.ConsoleLauncher --select-class com.autonomouscar.sensors.SensorDataTest
+   - **Expected Output:**
+     ```
+     Obstacle Detection System received data: New camera image data
+     Lane Tracking System received data: New camera image data
+     Obstacle Detection System received data: New LiDAR depth data
+     Traffic Sign Recognition System received data: New LiDAR depth data
      ```
 
 ## **Project Documentation**
 
-For a detailed explanation of the project, including the code and design choices, please refer to the `Decorator.pdf` document included in the project.
+For a comprehensive explanation of the project, including the design patterns, code implementation, and testing strategies, please refer to the `Observer.pdf` document included in the project repository.
 
 ## **License**
 

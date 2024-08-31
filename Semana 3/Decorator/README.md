@@ -80,11 +80,7 @@ Decorator/
 ### **How to Run**
 
 1. **Clone the Repository:**
-   - Clone the project repository to your local machine using Git:
-     ```bash
-     git clone https://github.com/yourusername/Decorator.git
-     ```
-     *(Replace the URL with the actual repository URL if applicable.)*
+   - Clone the project repository to your local machine using Git
 
 2. **Compile the Code:**
    - Navigate to the `src` directory:
@@ -107,7 +103,6 @@ Decorator/
      LiDAR Data: Fused Data: Distance and depth data from LiDAR
      Radar Data: Fused Data: Speed and distance data from radar
      ```
-     *(The actual output may vary based on implementation details.)*
 
 4. **Run Tests:**
    - Ensure JUnit 5 is available in your classpath.
