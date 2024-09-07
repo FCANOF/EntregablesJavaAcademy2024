@@ -86,9 +86,10 @@ Located in the `controller` package, this class handles HTTP requests for managi
 
 - **Endpoints**:
   - `GET /api/sensors`: Retrieve all sensors.
-  - `GET /api/sensors/{id}`: Retrieve a specific sensor by ID.
-  - `POST /api/sensors`: Add a new sensor.
-  - `DELETE /api/sensors/{id}`: Delete a sensor by ID.
+  - `GET /api/sensors/search/{id}`: Retrieve a specific sensor by ID.
+  - `POST /api/sensors/add`: Add a new sensor.
+  - `PUT /api/sensors/update/{id}`: Add a new sensor.
+  - `DELETE /api/sensors/delete/{id}`: Delete a sensor by ID.
 
 #### **7. `application.properties` (Configuration)**
 
@@ -100,7 +101,7 @@ spring.datasource.url=jdbc:mysql://localhost:3306/sensor_management
 spring.datasource.username=jpa_project_W4
 spring.datasource.password=jpa_project_W4
 
-server.port = 8081
+server.port = 8082
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
@@ -108,7 +109,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 
 #### **8. `data.sql` (Optional)**
 
-This file is used to insert initial data into the `sensors` table when the application starts. You can add sample data for testing.
+This file is used to insert initial data into the `sensor` table when the application starts. You can add sample data for testing.
 
 ```sql
 INSERT INTO `sensor` (`id`,`sensor_name`,`sensor_type`,`status`) VALUES (1,'multisense','camera', 'calibrated');
