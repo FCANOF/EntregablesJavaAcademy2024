@@ -1,4 +1,4 @@
-### **Sensor Management System - REST API using Spring Boot and JPA**
+### **Sensor Management System - REST API using Spring Boot and Data JPA**
 **Frida Cano**
 
 *Java Backend Academy September 2024*
