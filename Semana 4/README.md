@@ -109,5 +109,3 @@ The **Mockito** project is designed to demonstrate unit testing in Java using th
 These four projects demonstrate key Java and Spring-related frameworks and libraries, highlighting best practices for developing scalable, maintainable applications. Each project is structured to focus on a specific framework, providing a solid foundation for further development.
 
 --- 
-
-This structure will make your README informative and easy to navigate for anyone reviewing your projects.
