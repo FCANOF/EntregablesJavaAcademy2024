@@ -1,7 +1,3 @@
-Here’s your README updated with the requested format:
-
----
-
 ### **Sensor Management System - REST API using Spring Boot and JPA**
 **Frida Cano**
 
@@ -167,7 +163,3 @@ This project demonstrates how to implement a REST API for sensor data management
 ## **License**
 
 This project is open-source and can be used for educational purposes.
-
----
-
-Let me know if this matches what you need or if you'd like to make any changes!
