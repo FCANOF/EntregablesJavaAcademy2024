@@ -1,0 +1,3 @@
+id,battery_id,charge_start_time,charge_end_time,charging_area,charger_id,charge_status,issue_detected,issue_description
+1,A,2024-09-09 10:00:00,2024-09-09 11:00:00,Software,A,successful,FALSE,NULL
+2,B,2024-09-09 12:00:00,2024-09-09 13:00:00,Electronics,B,failed,TRUE,Charger malfunction during operation.

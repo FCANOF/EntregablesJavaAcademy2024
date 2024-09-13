@@ -2,19 +2,25 @@ package com.autonomous.vehicle_management.entity;
 
 
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "battery_charge")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "battery_charge")
 public class BatteryCharge {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @Getter
+    @Setter
     private Long id;
 
     @Column(name = "battery_id")

@@ -1,7 +1,8 @@
-package com.autonomouscar.battery_management.config;
+package com.autonomous.vehicle_management.config;
 
-import com.autonomouscar.battery_management.entity.BatteryChargeHistory;
-import com.autonomouscar.battery_management.repository.BatteryRepository;
+import com.autonomous.vehicle_management.entity.BatteryCharge;
+import com.autonomous.vehicle_management.repository.BatteryChargeRepository;
+
 
 import lombok.AllArgsConstructor;
 
@@ -28,7 +29,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class BatteryChargeJobConfig {
 
     private JobRepository jobRepository;
-    private BatteryRepository batteryRepository;
+    private BatteryChargeRepository batteryRepository;
     private PlatformTransactionManager transactionManager;
 
     // ---------------------------------- Job ----------------------------------
@@ -43,7 +44,7 @@ public class BatteryChargeJobConfig {
     @Bean
     public Step runStep() {
         return new StepBuilder("csv-step", jobRepository)
-                .<BatteryChargeHistory, BatteryChargeHistory>chunk(10, transactionManager)
+                .<BatteryCharge, BatteryCharge>chunk(10, transactionManager)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())
@@ -53,8 +54,8 @@ public class BatteryChargeJobConfig {
 
     // ---------------------------------- ItemReader ----------------------------------
     @Bean
-    public FlatFileItemReader<BatteryChargeHistory> reader() {
-        FlatFileItemReader<BatteryChargeHistory> itemReader = new FlatFileItemReader<>();
+    public FlatFileItemReader<BatteryCharge> reader() {
+        FlatFileItemReader<BatteryCharge> itemReader = new FlatFileItemReader<>();
         itemReader.setResource(new FileSystemResource("src/main/resources/battery_charge_data.csv"));
         itemReader.setName("csvReader");
         itemReader.setLinesToSkip(1);
@@ -62,16 +63,16 @@ public class BatteryChargeJobConfig {
         return itemReader;
     }
 
-    private LineMapper<BatteryChargeHistory> lineMapper() {
-        DefaultLineMapper<BatteryChargeHistory> lineMapper = new DefaultLineMapper<>();
+    private LineMapper<BatteryCharge> lineMapper() {
+        DefaultLineMapper<BatteryCharge> lineMapper = new DefaultLineMapper<>();
 
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
         lineTokenizer.setDelimiter(",");
         lineTokenizer.setStrict(false);
         lineTokenizer.setNames("id","battery_id", "charge_start_time", "charge_end_time", "charging_area", "charger_id","charge_status", "issue_detected","issue_description" );
 
-        BeanWrapperFieldSetMapper<BatteryChargeHistory> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
-        fieldSetMapper.setTargetType(BatteryChargeHistory.class);
+        BeanWrapperFieldSetMapper<BatteryCharge> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
+        fieldSetMapper.setTargetType(BatteryCharge.class);
 
         lineMapper.setLineTokenizer(lineTokenizer);
         lineMapper.setFieldSetMapper(fieldSetMapper);
@@ -88,8 +89,8 @@ public class BatteryChargeJobConfig {
     // ---------------------------------- ItemWriter -------------------------------------
 
     @Bean
-    public RepositoryItemWriter<BatteryChargeHistory> writer() {
-        RepositoryItemWriter<BatteryChargeHistory> writer = new RepositoryItemWriter<>();
+    public RepositoryItemWriter<BatteryCharge> writer() {
+        RepositoryItemWriter<BatteryCharge> writer = new RepositoryItemWriter<>();
         writer.setRepository(batteryRepository);
         writer.setMethodName("save");
         return writer;
