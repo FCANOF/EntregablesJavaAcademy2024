@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/batteries/job")
 public class BatteryController {
 
-
     @Autowired
     private JobLauncher jobLauncher;
 

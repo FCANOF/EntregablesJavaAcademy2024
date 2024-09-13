@@ -1,4 +1,4 @@
-package com.autonomouscar.sensor_management.model;
+package com.autonomous.vehicle_management.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,9 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "sensor")
 public class Sensor {
 
     @Id
@@ -35,4 +37,5 @@ public class Sensor {
         this.sensorType = sensorType;
         this.status = status;
     }
+
 }
