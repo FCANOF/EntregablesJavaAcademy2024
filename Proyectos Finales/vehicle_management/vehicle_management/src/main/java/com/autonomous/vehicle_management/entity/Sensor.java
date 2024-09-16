@@ -37,5 +37,4 @@ public class Sensor {
         this.sensorType = sensorType;
         this.status = status;
     }
-
 }
